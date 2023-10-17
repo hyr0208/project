@@ -5,7 +5,7 @@ import Toggle from "./Toggle";
 function App() {
   return (
     <div>
-      <InputSample />
+      {/* <InputSample /> */}
       <Toggle />
     </div>
   );
