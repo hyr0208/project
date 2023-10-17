@@ -15,7 +15,7 @@ function Toggle() {
       </div>
       <div
         className={`w-[50px] h-[50px] bg-[#000] duration-500 ${
-          toggle ? "translate-y-5" : "-translate-y-50"
+          toggle ? "translate-x-10" : "-translate-x-50"
         }`}
       ></div>
     </div>
