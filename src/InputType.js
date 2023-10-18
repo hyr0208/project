@@ -24,15 +24,7 @@ function InputType() {
           encodeFileToBase64(e.target.files[0]);
         }}
       />
-      <div>
-        {imageSrc && (
-          <img
-            src={imageSrc}
-            alt="preview-img"
-            className="w-[100px] h-[100px]"
-          />
-        )}
-      </div>
+      <div>{imageSrc && <img src={imageSrc} alt="preview-img" />}</div>
     </div>
   );
 }
