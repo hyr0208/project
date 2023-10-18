@@ -1,8 +1,8 @@
 import "./App.css";
-import Animate from "./Animate";
-import InputSample from "./InputSample";
-import Toggle from "./Toggle";
-import InputType from "./InputType";
+import Animate from "./components/Animate";
+import InputSample from "./components/InputSample";
+import Toggle from "./components/Toggle";
+import InputType from "./components/InputType";
 
 function App() {
   return (
