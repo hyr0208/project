@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .animate-custom-bounce {
+    animation: custom-bounce 1s infinite;
+  }
+
+  @keyframes custom-bounce {
+    0%,
+    100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(100%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  .animate-custom-shadow {
+    animation: custom-shadow 1s infinite;
+  }
+
+  @keyframes custom-shadow {
+    0% {
+      transform: scale(0.1);
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      transform: scale(1);
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    55% {
+      transform: scale(1);
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    65% {
+      transform: scale(0.5);
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+    95% {
+      transform: scale(0.1);
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      transform: scale(0.1);
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
