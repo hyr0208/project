@@ -1,0 +1,115 @@
+[debug] [2023-10-19T01:48:00.323Z] ----------------------------------------------------------------------
+[debug] [2023-10-19T01:48:00.324Z] Command:       /usr/local/bin/firebase /Users/yerin_1/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy --only hosting
+[debug] [2023-10-19T01:48:00.325Z] CLI Version:   12.7.0
+[debug] [2023-10-19T01:48:00.325Z] Platform:      darwin
+[debug] [2023-10-19T01:48:00.326Z] Node Version:  v16.16.0
+[debug] [2023-10-19T01:48:00.333Z] Time:          Thu Oct 19 2023 10:48:00 GMT+0900 (GMT+09:00)
+[debug] [2023-10-19T01:48:00.333Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-19T01:48:00.439Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-19T01:48:00.440Z] > authorizing via signed-in user (tozha102644@gmail.com)
+[debug] [2023-10-19T01:48:00.441Z] [iam] checking project project-4de8f for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-19T01:48:00.443Z] > refreshing access token with scopes: []
+[debug] [2023-10-19T01:48:00.445Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-10-19T01:48:00.446Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-19T01:48:01.920Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-10-19T01:48:01.924Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-10-19T01:48:01.945Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-4de8f:testIamPermissions [none]
+[debug] [2023-10-19T01:48:01.946Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-4de8f:testIamPermissions x-goog-quota-user=projects/project-4de8f
+[debug] [2023-10-19T01:48:01.946Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-4de8f:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T01:48:03.852Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-4de8f:testIamPermissions 200
+[debug] [2023-10-19T01:48:03.854Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-4de8f:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-19T01:48:03.856Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/project-4de8f [none]
+[debug] [2023-10-19T01:48:04.619Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/project-4de8f 200
+[debug] [2023-10-19T01:48:04.621Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/project-4de8f {"projectId":"project-4de8f","projectNumber":"755161697789","displayName":"project","name":"projects/project-4de8f","resources":{"hostingSite":"project-4de8f"},"state":"ACTIVE","etag":"1_fe2bfa81-08d3-4429-83e8-2cee1fb9f61a"}
+[info] 
+[info] === Deploying to 'project-4de8f'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-10-19T01:48:04.640Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions [none]
+[debug] [2023-10-19T01:48:04.641Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-10-19T01:48:05.764Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions 200
+[debug] [2023-10-19T01:48:05.767Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions {"name":"projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[project-4de8f]: beginning deploy... 
+[info] i  hosting[project-4de8f]: found 14 files in build 
+[debug] [2023-10-19T01:48:05.797Z] [hosting] uploading with 200 concurrency
+[debug] [2023-10-19T01:48:05.878Z] [hosting] hash cache [YnVpbGQ] stored for 14 files
+[debug] [2023-10-19T01:48:05.878Z] [hosting][hash queue][FINAL] {"max":62,"min":13,"avg":21.5,"active":0,"complete":14,"success":14,"errored":0,"retried":0,"total":14,"elapsed":75}
+[debug] [2023-10-19T01:48:05.878Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835:populateFiles [none]
+[debug] [2023-10-19T01:48:05.879Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835:populateFiles {"files":{"/asset-manifest.json":"929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208","/favicon.ico":"b72f7455f00e4e58792d2bca892abb068e2213838c0316d6b7a0d6d16acd1955","/manifest.json":"341d52628782f8ac9290bbfc43298afccb47b7cbfcee146ae30cf0f46bc30900","/index.html":"9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe","/robots.txt":"391d14b3c2f8c9143a27a28c7399585142228d4d1bdbe2c87ac946de411fa9a2","/logo192.png":"caff018b7f1e8fd481eb1c50d75b0ef236bcd5078b1d15c8bb348453fee30293","/static/js/787.ec704a7a.chunk.js":"388baadbf4ef87ad3aa394a045735cdb82fce91a260cc3b4bd79ea7a20caae60","/static/js/main.6b9fb2ea.js.LICENSE.txt":"2e0317bf47c29fb7d0485a53b66ae8cb58c98d0cbaf239efac64dd310dfdabda","/static/css/main.4703475c.css.map":"f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990","/logo512.png":"191fc21360b4ccfb1cda11a1efb97f489ed22672ca83f4064316802bbfdd750e","/static/css/main.4703475c.css":"b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975","/static/js/787.ec704a7a.chunk.js.map":"d5359bbf9396972605832e3600d593e4f4479c66b261ffc3ef4ff6e7b98271d6","/static/js/main.6b9fb2ea.js":"89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765","/static/js/main.6b9fb2ea.js.map":"256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447"}}
+[debug] [2023-10-19T01:48:06.955Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835:populateFiles 200
+[debug] [2023-10-19T01:48:06.956Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835:populateFiles {"uploadRequiredHashes":["89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765","b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975","f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990","9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe","256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447","929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files"}
+[debug] [2023-10-19T01:48:06.963Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765 [none]
+[debug] [2023-10-19T01:48:06.963Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765 [stream]
+[debug] [2023-10-19T01:48:06.965Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975 [none]
+[debug] [2023-10-19T01:48:06.967Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975 [stream]
+[debug] [2023-10-19T01:48:06.970Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990 [none]
+[debug] [2023-10-19T01:48:06.970Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990 [stream]
+[debug] [2023-10-19T01:48:06.972Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe [none]
+[debug] [2023-10-19T01:48:06.972Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe [stream]
+[debug] [2023-10-19T01:48:06.976Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447 [none]
+[debug] [2023-10-19T01:48:06.976Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447 [stream]
+[debug] [2023-10-19T01:48:06.981Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208 [none]
+[debug] [2023-10-19T01:48:06.981Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208 [stream]
+[debug] [2023-10-19T01:48:06.986Z] [hosting][populate queue][FINAL] {"max":1087,"min":1087,"avg":1087,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1110}
+[debug] [2023-10-19T01:48:06.986Z] [hosting] uploads queued: 6
+[debug] [2023-10-19T01:48:08.249Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975 200
+[debug] [2023-10-19T01:48:08.250Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/b95526b622608096c86fdf7def927610c1516697478a87dc8a3f3e4dfa83d975 [stream]
+[debug] [2023-10-19T01:48:08.320Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe 200
+[debug] [2023-10-19T01:48:08.321Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/9a1e8a009e74bf195a8675532aa4a280a4ec56a1e66cbde567f28c6a0d5304fe [stream]
+[debug] [2023-10-19T01:48:08.351Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447 200
+[debug] [2023-10-19T01:48:08.351Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/256dbbcfe48656baaef52249e6047f42ce101f02876153bc8a93ecb17ef2e447 [stream]
+[debug] [2023-10-19T01:48:08.353Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208 200
+[debug] [2023-10-19T01:48:08.353Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/929ba893d807ef43f1f55d4aaa069f3ccdfb6bb6cdd85a3cb36cb6a71834b208 [stream]
+[debug] [2023-10-19T01:48:08.388Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990 200
+[debug] [2023-10-19T01:48:08.388Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/f8fab093a9095ac93ef9f945b9dcf01be04da6eb3a0c18e8acfcf9ab11bd4990 [stream]
+[debug] [2023-10-19T01:48:08.443Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765 200
+[debug] [2023-10-19T01:48:08.443Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-4de8f/versions/d559f278b3a1a835/files/89a7b2a2bd4ceb34f1c73b078117a9fac6328e121503d832925b6d34591b3765 [stream]
+[debug] [2023-10-19T01:48:08.444Z] [hosting][upload queue][FINAL] {"max":1486,"min":1292,"avg":1392.8333333333333,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":1488}
+[info] ✔  hosting[project-4de8f]: file upload complete 
+[debug] [2023-10-19T01:48:08.446Z] [hosting] deploy completed after 2676ms
+[debug] [2023-10-19T01:48:08.447Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "project-4de8f"
+    },
+    "version": "projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835"
+  }
+]
+[info] i  hosting[project-4de8f]: finalizing version... 
+[debug] [2023-10-19T01:48:08.449Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions/d559f278b3a1a835 updateMask=status%2Cconfig
+[debug] [2023-10-19T01:48:08.449Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions/d559f278b3a1a835 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2023-10-19T01:48:09.755Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions/d559f278b3a1a835 200
+[debug] [2023-10-19T01:48:09.756Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/versions/d559f278b3a1a835 {"name":"projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-10-19T01:48:05.393927Z","createUser":{"email":"tozha102644@gmail.com"},"finalizeTime":"2023-10-19T01:48:09.580729Z","finalizeUser":{"email":"tozha102644@gmail.com"}}
+[debug] [2023-10-19T01:48:09.756Z] [hosting] finalized version for project-4de8f:[object Object]
+[info] ✔  hosting[project-4de8f]: version finalized 
+[info] i  hosting[project-4de8f]: releasing new version... 
+[debug] [2023-10-19T01:48:09.759Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/channels/live/releases versionName=projects%2F755161697789%2Fsites%2Fproject-4de8f%2Fversions%2Fd559f278b3a1a835
+[debug] [2023-10-19T01:48:09.759Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/channels/live/releases {}
+[debug] [2023-10-19T01:48:10.695Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/channels/live/releases 200
+[debug] [2023-10-19T01:48:10.695Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/project-4de8f/channels/live/releases {"name":"projects/755161697789/sites/project-4de8f/channels/live/releases/1697680089849000","version":{"name":"projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-10-19T01:48:05.393927Z","createUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"},"finalizeTime":"2023-10-19T01:48:09.580729Z","finalizeUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"}},"type":"DEPLOY","releaseTime":"2023-10-19T01:48:09.849Z","releaseUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"}}
+[debug] [2023-10-19T01:48:10.696Z] [hosting] release: {"name":"projects/755161697789/sites/project-4de8f/channels/live/releases/1697680089849000","version":{"name":"projects/755161697789/sites/project-4de8f/versions/d559f278b3a1a835","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-10-19T01:48:05.393927Z","createUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"},"finalizeTime":"2023-10-19T01:48:09.580729Z","finalizeUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"}},"type":"DEPLOY","releaseTime":"2023-10-19T01:48:09.849Z","releaseUser":{"email":"tozha102644@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLOFwldQykTfAGg1QgDHZgijTBVLX-R9TRa3QOZ2NHg=mo"}}
+[info] ✔  hosting[project-4de8f]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/project-4de8f/overview
+[info] Hosting URL: https://project-4de8f.web.app
+[debug] [2023-10-19T01:48:19.324Z] Error: Timed out.
+    at Timeout._onTimeout (/Users/yerin_1/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/utils.js:254:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function InputType() {
   const [imageSrc, setImageSrc] = useState("");
+  const [isActive, setActive] = useState(false);
 
   const Logo = () => (
     <svg className="w-[100px] h-[100px]" x="0px" y="0px" viewBox="0 0 24 24">
@@ -12,7 +13,19 @@ function InputType() {
       />
     </svg>
   );
-  const [isActive, setActive] = useState(false);
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+
+    const file = event.dataTransfer.files[0];
+    setActive(false);
+
+    encodeFileToBase64(file);
+  };
 
   /**
    *
@@ -45,24 +58,37 @@ function InputType() {
       <p className="absolute top-0">isActive : {isActive.toString()}</p>
       <label
         onDragEnter={handleDragEnter}
+        onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`w-[300px] h-[170px] m-auto bg-white rounded-[5px] border-dashed border-[3px] flex justify-center flex-col items-center cursor-pointer ${
+        onDrop={handleDrop}
+        htmlFor="inputFile"
+        className={`w-full m-4 h-1/2 bg-white rounded-[5px] border-dashed border-[3px] flex justify-center flex-col items-center  cursor-pointer ${
           isActive && "border-[#111] bg-[#efeef3]"
         }`}
       >
-        <input
-          className="hidden"
-          type="file"
-          onChange={(e) => {
-            encodeFileToBase64(e.target.files[0]);
-          }}
-        />
-        <Logo />
-        <p className="text-[18px] font-medium">
-          클릭 혹은 파일을 이곳에 드롭하세요.
-        </p>
-        <p className="text-[14px]">파일당 최대 3MB</p>
-        <div>{imageSrc && <img src={imageSrc} alt="preview-img" />}</div>
+        <div>
+          <input
+            className="hidden"
+            type="file"
+            id="inputFile"
+            onChange={(e) => {
+              encodeFileToBase64(e.target.files[0]);
+            }}
+          />
+          {imageSrc ? (
+            <div>
+              <img src={imageSrc} alt="preview-img" />
+            </div>
+          ) : (
+            <div className="flex justify-center flex-col items-center">
+              <Logo />
+              <p className="text-[18px] font-medium">
+                클릭 혹은 파일을 이곳에 드롭하세요.
+              </p>
+              <p className="text-[14px]">파일당 최대 3MB</p>
+            </div>
+          )}
+        </div>
       </label>
     </div>
   );
