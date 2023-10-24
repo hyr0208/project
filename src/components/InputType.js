@@ -18,27 +18,71 @@ function InputType() {
     event.preventDefault();
   };
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-
-    const file = event.dataTransfer.files[0];
-    setActive(false);
-
-    encodeFileToBase64(file);
-  };
-
   /**
    *
    * @returns
    * @description 드래그 영역에 들어갔을때 호출되는 함수
    */
-  const handleDragEnter = () => setActive(true);
+  const handleDragEnter = () => {
+    setActive(true);
+  };
 
   /**
    *
    * @description 드래그 영역에서 빠져나왔을때 호출되는 함수
    */
-  const handleDragLeave = () => setActive(false);
+  const handleDragLeave = () => {
+    setActive(false);
+  };
+
+  const handleDrop = async (event) => {
+    event.preventDefault();
+
+    // 1. then catch
+    // checkFileExtension(event)
+    //   .then(() => {
+    //     const file = event.dataTransfer.files[0];
+    //     setActive(false);
+
+    //     encodeFileToBase64(file);
+    //   })
+    //   .catch(() => {});
+
+    // 2. try catch
+    try {
+      await checkFileExtension(event);
+      const file = event.dataTransfer.files[0];
+      setActive(false);
+
+      encodeFileToBase64(file);
+    } catch (error) {}
+  };
+
+  /**
+   *
+   * @returns
+   */
+  const checkFileExtension = (event) => {
+    return new Promise((resolve, reject) => {
+      const files = event.dataTransfer.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const fileName = file.name;
+        const acceptedExtension = ["jpg", "png", "jpeg"];
+
+        const fileExtension = fileName.split(".").pop(); // 파일 이름에서 확장자 추출
+
+        if (acceptedExtension.includes(fileExtension.toLowerCase())) {
+          // 허용된 확장자와 일치하는지 확인
+          console.log("파일 확장자가 허용되었습니다.");
+          resolve();
+        } else {
+          console.log("허용되지 않은 파일 확장자입니다.");
+          reject();
+        }
+      }
+    });
+  };
 
   const encodeFileToBase64 = (fileBlob) => {
     //FileReader = fileBlob객체를 사용해 자바스크립트에서 파일에 접근할 수 있도록 도와주는 도구
@@ -70,6 +114,7 @@ function InputType() {
           <input
             className="hidden"
             type="file"
+            accept="image/png, image/jpeg, image/jpg"
             id="inputFile"
             onChange={(e) => {
               encodeFileToBase64(e.target.files[0]);
